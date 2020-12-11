@@ -30,7 +30,7 @@ npm i
 
 
 `
-
+node personnel.js
 `
 
 ## License

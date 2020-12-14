@@ -7,10 +7,11 @@ USE personnel_db;
 CREATE TABLE department(
   id INTEGER AUTO_INCREMENT NOT NULL,
   name VARCHAR(30) NOT NULL,
+  manager_id INTEGER NOT NULL,
   PRIMARY KEY (id)
 );
 
-CREATE TABLE role(
+CREATE TABLE roles(
   id INTEGER AUTO_INCREMENT NOT NULL,
   title VARCHAR(30) NOT NULL,
   salary DECIMAL NOT NULL,
@@ -26,6 +27,7 @@ CREATE TABLE employee(
   role_id INTEGER NOT NULL,
   manager_id INTEGER,
   PRIMARY KEY (id),
-  FOREIGN KEY (role_id) references role(id),
-  FOREIGN KEY (manager_id) references employee(id)
+  FOREIGN KEY (role_id) references roles(id),
+  FOREIGN KEY (manager_id) references department(id)
+  
 );
